@@ -1,6 +1,29 @@
 <%- include ('header') -%>
         <main>
-            Bienvenue sur ma page
+            <table>
+                <thead>
+                    <tr>
+                        <th>Civilité</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Téléphone</th>
+                        <th>Mail</th>
+                        <th>Anniversaire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(const a of address){ %>
+                        <tr>
+                            <td><%= a[1] %></td> 
+                            <td><%= a[2] %></td> 
+                            <td><%= a[3] %></td>
+                            <td><%= a[4] %></td> 
+                            <td><%= a[5] %></td> 
+                            <td><%= a[6] %></td> 
+                        </tr>
+                     <% } %>
+                </tbody>
+            </table>
         </main>
     </body>
 </html>
