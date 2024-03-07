@@ -1,0 +1,36 @@
+<%- include ('header') -%>
+        <main class="container">
+            <form method="post">
+                <fieldset>
+                    <label for="civilite">Civilité</label>
+                    <select name="civilite" id="civilite">
+                        <option value="">Choisir une civilité</option>
+                        <option value="Mme" <%= (address[1] === 'Mme') ? 'selected' : '' %>>Mme</option>
+                        <option value="Mr" <%= (address[1] === 'Mr') ? 'selected' : '' %>>Mr</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="nom">Nom</label>
+                    <input type="text" name="nom" id="nom" value="<%= address[2] %>">
+                </fieldset>
+                <fieldset>
+                    <label for="prenom">Prénom</label>
+                    <input type="text" name="prenom" id="prenom" value="<%= address[3] %>">
+                </fieldset>
+                <fieldset>
+                    <label for="telephone">Téléphone</label>
+                    <input type="text" name="telephone" id="telephone" value="<%= address[4] %>">
+                </fieldset>
+                <fieldset>
+                    <label for="mail">Mail</label>
+                    <input type="mail" name="mail" id="mail" value="<%= address[5] %>">
+                </fieldset>
+                <fieldset>
+                    <label for="date">Date de naissance</label>
+                    <input type="date" name="date" id="date" value="<%= address[6] %>">
+                </fieldset>
+                <button type="submit">Modifier</button>
+            </form>
+        </main>
+    </body>
+</html>
