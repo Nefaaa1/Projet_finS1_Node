@@ -8,3 +8,136 @@ body {
     margin: 0;
     padding: 0;
 }
+
+header{
+    background-color: #6F1A07;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1{
+    font-size: 2.2rem;
+    color: #F7F3E3;
+}
+
+header nav a {
+    color: #F7F3E3;
+    text-decoration: none;
+    margin-right: 2rem;
+}
+
+header nav a:hover {
+    color: #AF9164
+}
+
+.container{
+    max-width: 1100px;
+    margin: 2rem auto;
+}
+
+table{
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table td,table th{
+    padding: 0.7rem 1rem;
+    text-align: left;
+}
+
+table td a>i{
+    color: #fff;
+    background-color: #AF9164;
+    border: #AF9164 2px solid;
+    border-radius: 1rem;
+    padding: 0.3rem 1.3rem;
+}
+
+table td a>i:hover{
+    color: #AF9164;
+    background-color: #fff;
+}
+
+table td a{
+    margin-right: 1rem;
+}
+
+table th {
+    color: #AF9164;
+}
+
+table tr:nth-child(even) {
+    background-color: #F7F3E3; /* Choisissez la couleur que vous préférez */
+}
+
+table td i{
+    color: #6F1A07;
+}
+
+
+form fieldset {
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 1.5rem 1rem;
+}
+
+form fieldset+fieldset {
+    border-top: 1px dotted black;   
+}
+
+
+form label {
+    width: 33%;
+}
+
+form input,
+form textarea {
+    width: 66%;
+}
+
+form {
+    width: 60%;
+    margin: auto;
+}
+
+form button {
+    border: none;
+    border: 2px solid #AF9164;
+    border-radius: 1rem;
+    background-color: #AF9164;
+    color: #fff;
+    cursor: pointer;
+    padding: .6rem 3rem;
+    transition: all 0.4s;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+form button:hover {
+    background-color: #fff;
+    color: #AF9164
+}
+
+.info{
+    width: 40rem;
+    margin: auto;
+    border: #AF9164 2px solid;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.info h2{
+   text-align: center;
+   background-color: #AF9164;
+   color : #2B2118;
+   margin:0;
+   padding: 1rem 0 ;
+}
+
+.info p{
+    color : #2B2118;
+    padding:0 1rem ;
+ }

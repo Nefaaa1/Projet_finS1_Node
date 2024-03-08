@@ -15,7 +15,6 @@ export function homeView(req, res) {
                         res.writeHead(500, { "Content-type": "text/plain" })
                         res.end('Internal Servor error: ', error)
                     } else {
-                        console.log(result[result.length -1][0])
                         res.render('index.ejs', {baseUrl: baseUrl, address : result})
                     }
                 })

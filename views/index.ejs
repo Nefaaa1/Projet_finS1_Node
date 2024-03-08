@@ -14,8 +14,8 @@
                     <% for(const a of address){ %>
                         <tr>
                             <td><% 
-                                const date =new Date().toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' });
-                                const anniv= new Date(a[6]).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' });
+                                const date =new Date().toLocaleDateString('fr-FR', { month: '2-digit', day: '2-digit' });
+                                const anniv= new Date(a[6]).toLocaleDateString('fr-FR', { month: '2-digit', day: '2-digit' });
                                 if (date === anniv) { %>
                                     <i class="fa-solid fa-cake-candles"></i>
                                 <% } %>
@@ -23,7 +23,7 @@
                             <td><%= a[1] %></td> 
                             <td><%= a[2] %></td> 
                             <td><%= a[3] %></td>
-                            <th><a href="/address/<%= a[0] %>"><i class="fa-solid fa-eye"></i></a><a href="/modifie/address/<%= a[0] %>"><i class="fa-solid fa-pen-to-square"></i></a><a href="#" onclick="deleteAddress(<%= a[0] %>)"><i class="fa-solid fa-trash"></i></a> </th>
+                            <td><a href="/address/<%= a[0] %>"><i class="fa-solid fa-eye"></i></a><a href="/modifie/address/<%= a[0] %>"><i class="fa-solid fa-pen-to-square"></i></a><a href="#" onclick="deleteAddress(<%= a[0] %>)"><i class="fa-solid fa-trash"></i></a> </td>
                         </tr>
                      <% } %>
                 </tbody>
