@@ -6,6 +6,7 @@ const port = 3000;
 const baseUrl = `http://localhost:${port}`;
 
 app.use(express.static('public'));
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use('/', router)
 
