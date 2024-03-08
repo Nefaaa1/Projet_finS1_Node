@@ -23,7 +23,7 @@ export function homeView(req, res) {
 }
 
 export function deleteAddress(req, res) {
-    const idAddress = req.params.id;
+    const { ids } = req.body;
     console.log('delete')
     fs.readFile('./public/data/address.csv', (err, content) =>{
         if (err) {
@@ -35,8 +35,10 @@ export function deleteAddress(req, res) {
                     res.writeHead(500, { "Content-type": "text/plain" })
                     res.end('Internal Servor error: ', error)
                 } else {
-                    const index = result.findIndex(ligne => ligne[0] === idAddress);
-                    result.splice(index, 1);
+                    ids.forEach((id) => {
+                        const index = result.findIndex((ligne) => ligne[0] === id);
+                        result.splice(index, 1);
+                    });
                     stringify(result, (strError, dataCSV) =>{
                         if (strError) {
                             res.writeHead(500, { "Content-type": "text/plain" })

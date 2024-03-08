@@ -68,7 +68,7 @@ table th {
     color: #AF9164;
 }
 
-table tr:nth-child(even) {
+table tbody tr:nth-child(even) {
     background-color: #F7F3E3; /* Choisissez la couleur que vous préférez */
 }
 
@@ -103,7 +103,7 @@ form {
     margin: auto;
 }
 
-form button {
+button {
     border: none;
     border: 2px solid #AF9164;
     border-radius: 1rem;
@@ -116,7 +116,7 @@ form button {
     margin-top: 1rem;
 }
 
-form button:hover {
+button:hover {
     background-color: #fff;
     color: #AF9164
 }
@@ -141,3 +141,7 @@ form button:hover {
     color : #2B2118;
     padding:0 1rem ;
  }
+
+th button{
+    float: right;
+}

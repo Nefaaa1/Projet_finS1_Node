@@ -3,6 +3,9 @@
             <table>
                 <thead>
                     <tr>
+                        <th colspan="5"><button id='deleteAdresse' title="Supprimer les adresses séléctionnées">Supprimer <i class="fa-solid fa-trash"></i></button> </th>
+                    </tr>
+                    <tr>
                         <th> </th>
                         <th>Civilité</th>
                         <th>Nom</th>
@@ -23,28 +26,55 @@
                             <td><%= a[1] %></td> 
                             <td><%= a[2] %></td> 
                             <td><%= a[3] %></td>
-                            <td><a href="/address/<%= a[0] %>"><i class="fa-solid fa-eye"></i></a><a href="/modifie/address/<%= a[0] %>"><i class="fa-solid fa-pen-to-square"></i></a><a href="#" onclick="deleteAddress(<%= a[0] %>)"><i class="fa-solid fa-trash"></i></a> </td>
+                            <td><a href="/address/<%= a[0] %>"><i class="fa-solid fa-eye"></i></a><a href="/modifie/address/<%= a[0] %>"><i class="fa-solid fa-pen-to-square"></i></a><input type="checkbox" data-id="<%= a[0] %>" class="checkDelete"> </td>
                         </tr>
                      <% } %>
                 </tbody>
             </table>
         </main>
         <script>
-            let deleteAddress = function(id){
-                if (confirm('Voulez vous vraiment supprimer cette adresse ?')){
-                    fetch(`/delete/address/${id}`, {
-                        method: 'DELETE',
-                        })
-                        .then(response => {
-                            if(response.status == "200"){
-                                document.location.href='/';
-                            }
-                        })
-                        .catch(error => {
-                             console.error('Erreur de la requête DELETE:', error);
-                        });
+            document.addEventListener('DOMContentLoaded', function() {
+                const checkBox = document.querySelectorAll(".checkDelete");
+                let inputCheck = [];
+                // checkBox.forEach(function(input) {
+                //     input.addEventListener('change', function() {
+                //         inputCheck = [];
+                //         checkBox.forEach(function(box) {
+                //             if(box.checked){
+                //                 inputCheck.push(box.getAttribute('data-id'))
+                //             }
+                //         })
+                //         console.log(inputCheck)
+                //     })
+                // })    
+                let deleteAddress = function(){
+                    checkBox.forEach(function(box) {
+                        if (box.checked) {
+                            inputCheck.push(box.getAttribute('data-id'))
+                        }
+                    });
+                    console.log(JSON.stringify({ ids: inputCheck }))
+                    if (confirm('Voulez vous vraiment supprimer ces adresses ?')){
+                        fetch(`/delete/address`, {
+                            method: 'delete',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ ids: inputCheck })
+                            })
+                            .then(response => {
+                                if(response.status == "200"){
+                                    document.location.href='/';
+                                }
+                            })
+                            .catch(error => {
+                                 console.error('Erreur de la requête DELETE:', error);
+                            });
+                    }
                 }
-            }
+                
+                document.getElementById('deleteAdresse').addEventListener('click', deleteAddress)
+            });
         </script>
     </body>
 </html>

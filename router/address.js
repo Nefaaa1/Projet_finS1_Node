@@ -15,8 +15,8 @@ router.get("/add/address", addAddressView)
 router.post("/add/address", addAddressSubmit)
 
 router.get("/modifie/address/:id", modifieAddressView)
-router.post("/modifie/address/:id", modifieAddressSubmit)
+router.put("/modifie/address/:id", modifieAddressSubmit)
 
-router.delete("/delete/address/:id", deleteAddress)
+router.delete("/delete/address", deleteAddress)
 
 export default router;

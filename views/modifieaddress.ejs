@@ -1,6 +1,6 @@
 <%- include ('header') -%>
         <main class="container">
-            <form method="post">
+            <form id="modifieForm">
                 <fieldset>
                     <label for="civilite">Civilité</label>
                     <select name="civilite" id="civilite">
@@ -32,5 +32,21 @@
                 <button type="submit">Modifier</button>
             </form>
         </main>
+        <script>
+            document.getElementById(modifieForm).addEventListener("submit",modifieAddress(<%= address[0] %>));
+            let modifieAddress = function(id){
+                    fetch(`/modifie/address/${id}`, {
+                        method: 'put',
+                        })
+                        .then(response => {
+                            if(response.status == "200"){
+                                document.location.href='/';
+                            }
+                        })
+                        .catch(error => {
+                             console.error('Erreur de la requête PUT:', error);
+                        });
+            }
+        </script>
     </body>
 </html>
