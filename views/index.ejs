@@ -1,29 +1,50 @@
 <%- include ('header') -%>
-        <main>
+        <main class="container">
             <table>
                 <thead>
                     <tr>
+                        <th> </th>
                         <th>Civilité</th>
                         <th>Nom</th>
                         <th>Prénom</th>
-                        <th>Téléphone</th>
-                        <th>Mail</th>
-                        <th>Anniversaire</th>
+                        <th> </th>
                     </tr>
                 </thead>
                 <tbody>
                     <% for(const a of address){ %>
                         <tr>
+                            <td><% 
+                                const date =new Date().toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' });
+                                const anniv= new Date(a[6]).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' });
+                                if (date === anniv) { %>
+                                    <i class="fa-solid fa-cake-candles"></i>
+                                <% } %>
+                            </td> 
                             <td><%= a[1] %></td> 
                             <td><%= a[2] %></td> 
                             <td><%= a[3] %></td>
-                            <td><%= a[4] %></td> 
-                            <td><%= a[5] %></td> 
-                            <td><%= a[6] %></td> 
+                            <th><a href="/address/<%= a[0] %>"><i class="fa-solid fa-eye"></i></a><a href="/modifie/address/<%= a[0] %>"><i class="fa-solid fa-pen-to-square"></i></a><a href="#" onclick="deleteAddress(<%= a[0] %>)"><i class="fa-solid fa-trash"></i></a> </th>
                         </tr>
                      <% } %>
                 </tbody>
             </table>
         </main>
+        <script>
+            let deleteAddress = function(id){
+                if (confirm('Voulez vous vraiment supprimer cette adresse ?')){
+                    fetch(`/delete/address/${id}`, {
+                        method: 'DELETE',
+                        })
+                        .then(response => {
+                            if(response.status == "200"){
+                                document.location.href='/';
+                            }
+                        })
+                        .catch(error => {
+                             console.error('Erreur de la requête DELETE:', error);
+                        });
+                }
+            }
+        </script>
     </body>
 </html>

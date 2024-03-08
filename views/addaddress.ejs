@@ -2,20 +2,32 @@
         <main class="container">
             <form method="post">
                 <fieldset>
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name">
+                    <label for="civilite">Civilité</label>
+                    <select name="civilite" id="civilite">
+                        <option value="">Choisir une civilité</option>
+                        <option value="Mme">Mme</option>
+                        <option value="Mr">Mr</option>
+                    </select>
                 </fieldset>
                 <fieldset>
-                    <label for="image">Image</label>
-                    <input type="text" name="image" id="image">
+                    <label for="nom">Nom</label>
+                    <input type="text" name="nom" id="nom">
                 </fieldset>
                 <fieldset>
-                    <label for="age">Age</label>
-                    <input type="text" name="age" id="age">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" name="prenom" id="prenom">
                 </fieldset>
                 <fieldset>
-                    <label for="description">Description</label>
-                    <textarea name="description" id="description"></textarea>
+                    <label for="telephone">Téléphone</label>
+                    <input type="text" name="telephone" id="telephone">
+                </fieldset>
+                <fieldset>
+                    <label for="mail">Mail</label>
+                    <input type="mail" name="mail" id="mail">
+                </fieldset>
+                <fieldset>
+                    <label for="date">Date de naissance</label>
+                    <input type="date" name="date" id="date">
                 </fieldset>
                 <button type="submit">Ajouter</button>
             </form>
